@@ -1,13 +1,12 @@
 #include "common.h"
 #include "chunk.h"
-
+#include "debug.h"
 
 int main(int argc, const char* argv[]){
   Chunk chunk;
   initChunk(&chunk);
-  printf("Chunk Capacity - %d\n", chunk.capacity);
   writeChunk(&chunk, OP_RETURN);
-  printf("Chunk Capacity - %d\n", chunk.capacity);
+  disassembleChunk(&chunk, "test chunk");
   freeChunk(&chunk);
 
 
