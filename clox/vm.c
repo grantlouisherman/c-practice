@@ -2,13 +2,22 @@
 #include "vm.h"
 #include <stdio.h>
 #include "value.h"
+#include "debug.h"
+
 
 VM vm;
 
+static void resetStack(){
+  vm.stackTop = vm.stack;
+}
 static InterpretResult run(){
   #define READ_BYTE()(*vm.ip++)
-  #define READ_CONSTANT() (vm.chunk->constants.values[READ_BYTE()])  
+  #define READ_CONSTANT() (vm.chunk->constants.values[READ_BYTE()])
 
+  #ifdef DEBUG_TRACE_EXECUTION
+    disassembleInstruction(vm.chunk, (int)(vm.ip - vm.chunk->code));
+  #endif
+  printf("INSTRUCTION POINTER %d\n", *vm.ip);
   for(;;){
     uint8_t instruction;
     switch (instruction = READ_BYTE()) {
@@ -30,7 +39,7 @@ static InterpretResult run(){
 }
 
 void initVM(){
-
+  resetStack();
 }
 
 void freeVM(){
@@ -41,4 +50,15 @@ InterpretResult interpret(Chunk* chunk){
   vm.chunk = chunk;
   vm.ip = vm.chunk->code;
   return run();
+}
+
+void push(Value value){
+  *vm.stackTop = value;
+  vm.stackTop++;
+}
+
+Value pop(){
+  Value head = *vm.stackTop;
+  vm.stackTop--;
+  return head;
 }
