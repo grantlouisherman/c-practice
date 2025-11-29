@@ -9,14 +9,19 @@ typedef enum {
 } OpCode;
 
 typedef struct {
+  uint8_t code;
+  int line;
+} CodeTuple;
+
+typedef struct {
   int count;
   int capacity;
-  uint8_t* code;
+  CodeTuple* code;
   ValueArray constants;
 } Chunk;
 
 void initChunk(Chunk* chunk);
-void writeChunk(Chunk* chunk, uint8_t byte);
+void writeChunk(Chunk* chunk, uint8_t byte, int line);
 int addConstant(Chunk* chunk,Value value);
 void freeChunk(Chunk* chunk);
 
