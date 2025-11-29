@@ -4,3 +4,4 @@ cmake_install.cmake
 CMakeFiles
 cmake_install.cmake
 clox
+../.DS_Store

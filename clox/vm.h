@@ -7,7 +7,7 @@
 
 typedef struct {
   Chunk* chunk;
-  CodeTuple* ip;
+  uint8_t* ip;
 } VM;
 
 typedef enum {

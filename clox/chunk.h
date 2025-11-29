@@ -16,8 +16,9 @@ typedef struct {
 typedef struct {
   int count;
   int capacity;
-  CodeTuple* code;
+  uint8_t* code;
   ValueArray constants;
+  int* lines;
 } Chunk;
 
 void initChunk(Chunk* chunk);
