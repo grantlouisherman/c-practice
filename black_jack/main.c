@@ -62,8 +62,70 @@ void BlackJack_PrintHand(Card* player_hand, bool hand_owner){
   }
   int hand_sum = player_hand[0].value + player_hand[1].value;
   printf("%s Hand is: {%c%c}, {%c%c}, Total Value: %i \n", owner, player_hand[0].type, player_hand[0].suit, player_hand[1].type,player_hand[1].suit, hand_sum);
-  
 }
+
+void BlackJack_Hit(Card* hand, int curr_hand_size){
+
+}
+
+
+
+bool BlackJack_AI(){
+  return true;
+}
+
+Card BlackJack_DealNextCard(Card* deck, int* taken_idxs, int taken_idx_capacity){
+  
+  while(true){
+    int r = rand() % 52;
+    for(int i=0;i<taken_idx_capacity;i++){
+      if(taken_idxs[i] == r){
+        i = 0;
+        r = rand() % 52;
+        continue;
+      }
+    }
+    return deck[r];
+  }
+}
+
+
+void BlackJack_GameLoop(Card* player_hand, Card* dealer_hand, Card* deck, int* taken_idxs){
+  bool player_turn = true; // True is player and False is dealer
+  int taken_idx_capacity = 4;
+  int player_hand_capacity = 2;
+  while(true){
+  /*
+        * Both hands are already dealt
+        * We need to be able to realloc the hand if they hit
+        *  If they stay then it goes to the dealer
+        *  Then some AI logic, for now lets do if the diff is > 5 you hit if not you stay
+        *  Then final check at the end
+  */
+    if(player_turn == false){
+      if(BlackJack_AI() == true){
+        break;
+      }
+    }
+     
+    char command;
+    printf("What would you like to do?  ");
+    scanf("%c", &command);
+   
+    if(command == 'S'){
+      player_turn = false;
+      continue;
+    }
+
+    if(command == 'H'){
+      //Card* deck, int* taken_idxs, int taken_idx_capacity
+      Card next_card = BlackJack_DealNextCard(deck, taken_idxs, taken_idx_capacity);
+      break;
+    }
+    printf("Something went wrong try again...");
+  }
+}
+
 int main() {
   srand(time(NULL));
   printf("Welcome to BlackJack!\n");
@@ -74,8 +136,12 @@ int main() {
   int dealer_hand_size = 0;
   Card* player_hand = (Card*)malloc(2*sizeof(Card));
   Card* dealer_hand = (Card*)malloc(2*sizeof(Card));
-  while(player_hand_size < 2 && dealer_hand_size < 2){
+  int* taken_idxs = malloc(4 * sizeof(int));
+  int taken_idxs_pointer = 0;
+  while(player_hand_size + dealer_hand_size < 4){
     int r = rand() % 52;
+    taken_idxs[taken_idxs_pointer] = r;
+    taken_idxs_pointer+=1;
     if(direction == true){
       player_hand[player_hand_size] = deck_of_cards[r];
       direction = false;
@@ -87,6 +153,13 @@ int main() {
     }
   }
   BlackJack_PrintHand(player_hand, true);
-  BlackJack_PrintHand(dealer_hand, false); 
+  BlackJack_PrintHand(dealer_hand, false);
+  //Card* player_hand, Card* dealer_hand, Card* deck, int* taken_idxs
+  BlackJack_GameLoop(player_hand, dealer_hand, deck_of_cards, taken_idxs);
+
+  // Mem clean up
+  free(deck_of_cards);
+  free(player_hand);
+  free(dealer_hand);
   return 0;
 }
