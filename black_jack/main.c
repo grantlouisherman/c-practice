@@ -120,6 +120,21 @@ void BlackJack_GameLoop(Card* player_hand, Card* dealer_hand, Card* deck, int* t
     if(command == 'H'){
       //Card* deck, int* taken_idxs, int taken_idx_capacity
       Card next_card = BlackJack_DealNextCard(deck, taken_idxs, taken_idx_capacity);
+      player_hand_capacity+=1;
+//      printf("%li", sizeof(player_hand));
+      Card* new_hand = (Card*)realloc(player_hand, player_hand_capacity*sizeof(Card));
+      if(new_hand == NULL){
+        printf("Realloc Failed");
+        break;
+      }
+      player_hand = new_hand;
+      int new_idx = player_hand_capacity-1;
+      player_hand[new_idx] = next_card;
+      for(int i = 0; i<player_hand_capacity; i++){
+        Card l = player_hand[i];
+        printf("%c\n", l.type);
+      }
+  //    printf("%li", sizeof(player_hand));
       break;
     }
     printf("Something went wrong try again...");
