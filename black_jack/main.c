@@ -102,6 +102,7 @@ Card BlackJack_DealNextCard(Card* deck, int* taken_idxs, int taken_idx_capacity)
 
 int BlackJack_Hit(Card* hand, int curr_hand_size, Card next_card){
   Card* new_hand = (Card*)realloc(hand, curr_hand_size*sizeof(Card));
+
   int new_hand_size = curr_hand_size+1;
   if(new_hand == NULL){
       printf("Realloc Failed");
@@ -113,11 +114,16 @@ int BlackJack_Hit(Card* hand, int curr_hand_size, Card next_card){
 }
 
 void BlackJack_GameLoop(Card* player_hand, Card* dealer_hand, Card* deck, int* taken_idxs){
+  
   bool player_turn = true; // True is player and False is dealer
   int taken_idx_capacity = 4;
   int player_hand_capacity = 2;
   while(true){
     int current_sum = BlackJack_SumHand(player_hand, player_hand_capacity);
+    if(current_sum == 21){
+      printf("<<<<<You Won!!!!>>>\n");
+      break;
+    }
     printf("Your current hand sum is: %i\n", current_sum);
   /*
         * Both hands are already dealt
@@ -134,8 +140,8 @@ void BlackJack_GameLoop(Card* player_hand, Card* dealer_hand, Card* deck, int* t
      
     char command;
     printf("What would you like to do?  \n");
-    scanf("%c", &command);
-    printf("Your command was : %c \n", command);
+    scanf(" %c", &command);
+    //printf("Your command was : %c \n", command);
 
     if(command == 's'){
       player_turn = false;
@@ -157,6 +163,9 @@ void BlackJack_GameLoop(Card* player_hand, Card* dealer_hand, Card* deck, int* t
         printf("Your hand is over 21, you loose");
         break;
       }
+    }
+    if(command != 'h' && command != 's'){
+      printf("BAD COMMAND: %c\n", command);
     }
   }
 }
@@ -193,8 +202,8 @@ int main() {
   BlackJack_GameLoop(player_hand, dealer_hand, deck_of_cards, taken_idxs);
 
   // Mem clean up
-  free(deck_of_cards);
-  free(player_hand);
-  free(dealer_hand);
+  //free(deck_of_cards);
+  //free(player_hand);
+  //free(dealer_hand);
   return 0;
 }
