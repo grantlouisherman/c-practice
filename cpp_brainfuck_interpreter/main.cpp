@@ -4,16 +4,36 @@
 #include <memory>
 
 void interpret(std::string line, std::vector<int>* vec_ptr, int* mem_ptr){
-    if(line == ">"){
-      (*mem_ptr)++;
-    }
-    if(line == "+"){
-      int idx = *mem_ptr;
-      (vec_ptr->at(idx))++;
-    }
+    for(auto s: line){
+      if(s == '>'){
+        (*mem_ptr)++;
+        continue;
+      }
+
+       if(s == '>'){
+         (*mem_ptr)++;
+         continue;
+       }
+
+      if(s == '+'){
+        int idx = *mem_ptr;
+        (vec_ptr->at(idx))++;
+        continue;
+      }
+
+      if(s == '-'){
+        int idx = *mem_ptr;
+        (vec_ptr->at(idx))--;
+        continue;
+      }
+
+      if(s == '['){
+        // Now in loop
+        
+      }
 
   } 
-
+}
 int main(){
   std::vector<int> memory(30000, 0);
   int mem_ptr = 0;
