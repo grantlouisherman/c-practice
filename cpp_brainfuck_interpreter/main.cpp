@@ -2,7 +2,9 @@
 #include<string>
 #include<vector>
 #include <memory>
+#include <optional>
 
+#define IS_ASCII_CODE(x) (x >= 41 && x <= 122)
 void execute(char s, std::shared_ptr<std::vector<int>> vec_ptr, int* mem_ptr){
   if(s == '>'){
     (*mem_ptr)++;
@@ -21,6 +23,13 @@ void execute(char s, std::shared_ptr<std::vector<int>> vec_ptr, int* mem_ptr){
     int idx = *mem_ptr;
     (vec_ptr->at(idx))--;
     }
+}
+
+std::optional<char> get_char(int n){
+  if(!IS_ASCII_CODE(n)){
+    return std::nullopt;
+  }
+  return static_cast<char>(n);
 }
 
 int execute_loop(std::string line, int idx, std::shared_ptr<std::vector<int>> vec_ptr, int* mem_ptr){

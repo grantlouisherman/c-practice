@@ -1,1 +1,1 @@
-g++ main.cpp -o brainfuck -std=c++11
+g++ main.cpp -o brainfuck -std=c++20
