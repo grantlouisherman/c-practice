@@ -1,3 +1,0 @@
-/mnt/c/Users/mxz/OneDrive/Desktop/code/c-practice/cpp_server/build/CMakeFiles/server.dir
-/mnt/c/Users/mxz/OneDrive/Desktop/code/c-practice/cpp_server/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/mxz/OneDrive/Desktop/code/c-practice/cpp_server/build/CMakeFiles/rebuild_cache.dir
