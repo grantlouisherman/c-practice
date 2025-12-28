@@ -54,7 +54,7 @@ static bool match(char expected){
 static char peek(){
   return *scanner.current;
 }
-static peekNext() {
+static char peekNext() {
   if(isAtEnd()) return '\0';
   return scanner.current[1];
 }
@@ -94,12 +94,41 @@ static Token string() {
   return makeToken(TOKEN_STRING);
 }
 
+static bool isDigit(char c) {
+  return c >= '0' && c <= '9';
+}
+
+static Token number() {
+  while(isDigit(peek())) advance();
+  if(peek() == '.' && isDigit(peekNext())){
+    advance();
+    while(isDigit(peek())) advance();
+  }
+  return makeToken(TOKEN_NUMBER);
+}
+
+static bool isAlpha(char c) {
+  return (c >= 'a' && c <= 'z') ||
+         (c >= 'A' && c <= 'Z') ||
+          c == '_';
+}
+
+static TokenType identifierType() {
+  return TOKEN_IDENTIFIER;
+}
+
+static Token identifier(){
+  while(isAlpha(peek()) || isDigit(peek())) advance();
+  return makeToken(identifierType());
+}
 Token scanToken(){
   skipWhitespace();
   scanner.start = scanner.current;
 
   if(isAtEnd()) return makeToken(TOKEN_EOF);
   char c = advance();
+  if(isDigit(c)) return number();
+  if(isAlpha(c)) return identifier();
   switch (c) {
     case '(': return makeToken(TOKEN_LEFT_PAREN);
     case ')': return makeToken(TOKEN_RIGHT_PAREN);
