@@ -32,6 +32,29 @@ void read_command_file(){
     printf("File READ_ERROR");
     return;
   }
+  if(fseek(fp, 0L, SEEK_END) != 0){
+    printf("Seek Failed\n");
+    fclose(fp);
+    return;
+  }
+  long bs = ftell(fp);
+  rewind(fp);
+  char* file_buffer = (char*)malloc(sizeof(char)* bs+1);
+  if(fread(file_buffer, sizeof(char), bs, fp) == 0){
+    printf("Could not read buffer\n");
+    return;
+  }
+  printf("Read Completed\n");
+  printf("Starting read loop\n");
+  int length = bs / sizeof(char);
+  printf("Array Size: %i\n", length);
+  for(int i=0;i<length;i++){
+    if(strcmp(&file_buffer[i],"\n") != -1){
+      printf("NEW_LINE_FOUND\n");
+    }
+    printf("%c", file_buffer[i]);
+  }
+
 }
 int main()
 {

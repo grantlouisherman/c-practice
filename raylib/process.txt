@@ -1,20 +1,20 @@
-Processes: 602 total, 4 running, 2 stuck, 596 sleeping, 2080 threads 
-2026/02/18 22:01:07
-Load Avg: 5.00, 4.68, 6.66 
-CPU usage: 28.3% user, 20.87% sys, 51.9% idle 
-SharedLibs: 309M resident, 49M data, 18M linkedit.
-MemRegions: 157152 total, 1302M resident, 122M private, 596M shared.
-PhysMem: 7820M used (2192M wired, 913M compressor), 370M unused.
-VM: 29T vsize, 5224M framework vsize, 5939967(0) swapins, 6147547(0) swapouts.
-Networks: packets: 1610913/2056M in, 316723/689M out.
-Disks: 12411390/117G read, 4916891/129G written.
+Processes: 615 total, 6 running, 609 sleeping, 2152 threads 
+2026/02/18 22:38:04
+Load Avg: 6.02, 5.42, 5.39 
+CPU usage: 35.38% user, 25.43% sys, 39.17% idle 
+SharedLibs: 329M resident, 49M data, 13M linkedit.
+MemRegions: 199258 total, 2138M resident, 103M private, 517M shared.
+PhysMem: 7977M used (2250M wired, 761M compressor), 213M unused.
+VM: 32T vsize, 5224M framework vsize, 5997951(0) swapins, 6271667(0) swapouts.
+Networks: packets: 1709659/2117M in, 424650/783M out.
+Disks: 13488566/125G read, 8495474/211G written.
 
-PID   COMMAND          %CPU TIME     #TH   #WQ  #PORTS MEM   PURG  CMPRS PGRP PPID STATE    BOOSTS      %CPU_ME %CPU_OTHRS UID FAULTS  COW   MSGSENT  MSGRECV  SYSBSD    SYSMACH  CSW      PAGEINS IDLEW  POWER INSTRS CYCLES JETPRI USER                  #MREGS RPRVT VPRVT VSIZE KPRVT KSHRD
-6406  head             0.0  00:00.00 1     0    12     372K  0B    0B    6403 6404 sleeping *0[1]       0.00000 0.00000    501 477     105   30       15       130       105      12       2       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
-6405  top              0.0  00:00.40 1/1   0    17     3092K 0B    0B    6403 6404 running  *0[1]       0.00000 0.00000    0   2016    165   366051   183025   3189      187018   198      4       0      0.0   0      0      180    root                  N/A    N/A   N/A   N/A   N/A   N/A  
-6404  bash             0.0  00:00.00 1     0    12     560K  0B    0B    6403 6403 sleeping *0[1]       0.00000 0.00000    501 798     155   44       22       292       176      4        7       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
-6403  Window           0.0  00:00.00 1     0    22     980K  0B    0B    6403 591  sleeping *0[1]       0.00000 0.00000    501 999     213   52       19       220       158      16       0       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
-6382  Google Chrome He 0.0  00:00.10 12    1    117    22M   24K   0B    5208 5208 sleeping *0[6]       0.00000 0.00000    501 17166   3174  397      270      2824      977      247      1       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
-6381  Google Chrome He 0.0  00:00.12 12    1    116    22M   24K   0B    5208 5208 sleeping *0[7]       0.00000 0.00000    501 17305   3174  386      265      2923      1001     241      8       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
-6322  mdworker_shared  0.0  00:00.29 4     1    53     1664K 0B    0B    6322 1    sleeping *0[1]       0.00000 0.00000    501 16202   314   735      307      5651      2072     937      17      1      0.0   0      0      0      grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
-6321  mdworker_shared  0.0  00:00.55 4     1    53     1520K 0B    0B    6321 1    sleeping *0[1]       0.00000 0.00000    501 30227   314   901      365      11569     3972     1615     17      1      0.0   0      0      0      grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+PID   COMMAND          %CPU TIME     #TH   #WQ  #PORTS MEM   PURG  CMPRS PGRP PPID STATE    BOOSTS       %CPU_ME %CPU_OTHRS UID FAULTS  COW   MSGSENT  MSGRECV  SYSBSD    SYSMACH  CSW      PAGEINS IDLEW   POWER INSTRS CYCLES JETPRI USER                  #MREGS RPRVT VPRVT VSIZE KPRVT KSHRD
+8062  head             0.0  00:00.00 1     0    12     364K  0B    0B    8054 8060 sleeping *0[1]        0.00000 0.00000    501 474     103   30       15       130       104      6        2       0       0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+8061  top              0.0  00:00.79 1/1   0    17     3188K 0B    0B    8054 8060 running  *0[1]        0.00000 0.00000    0   2052    167   451509   225754   3254      229859   520      4       0       0.0   0      0      180    root                  N/A    N/A   N/A   N/A   N/A   N/A  
+8060  bash             0.0  00:00.01 1     0    12     592K  0B    0B    8054 8059 sleeping *0[1]        0.00000 0.00000    501 807     155   44       22       292       177      12       7       0       0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+8059  Window           0.0  00:00.01 1     0    22     1056K 0B    0B    8054 8054 sleeping *0[1]        0.00000 0.00000    501 977     195   52       19       211       160      20       8       0       0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+8054  bash             0.0  00:00.01 1     0    12     716K  0B    0B    8054 591  sleeping *0[1]        0.00000 0.00000    501 1131    252   56       28       361       199      23       11      0       0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+8053  Google Chrome He 0.0  00:00.14 14    3    118    22M   24K   0B    5208 5208 sleeping *0[7]        0.00000 0.00000    501 17156   3174  377      258      2697      943      147      1       0       0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+8048  Google Chrome He 0.0  00:00.18 12    1    116    22M   24K   0B    5208 5208 sleeping *0[7]        0.00000 0.00000    501 17175   3174  411      275      2755      992      295      23      0       0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+7928  mdworker_shared  0.0  00:00.33 4     1    51     1668K 0B    0B    7928 1    sleeping *0[1]        0.00000 0.00000    501 13482   314   725      303      4898      1787     711      17      0       0.0   0      0      0      grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
