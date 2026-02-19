@@ -1,0 +1,20 @@
+Processes: 602 total, 4 running, 2 stuck, 596 sleeping, 2080 threads 
+2026/02/18 22:01:07
+Load Avg: 5.00, 4.68, 6.66 
+CPU usage: 28.3% user, 20.87% sys, 51.9% idle 
+SharedLibs: 309M resident, 49M data, 18M linkedit.
+MemRegions: 157152 total, 1302M resident, 122M private, 596M shared.
+PhysMem: 7820M used (2192M wired, 913M compressor), 370M unused.
+VM: 29T vsize, 5224M framework vsize, 5939967(0) swapins, 6147547(0) swapouts.
+Networks: packets: 1610913/2056M in, 316723/689M out.
+Disks: 12411390/117G read, 4916891/129G written.
+
+PID   COMMAND          %CPU TIME     #TH   #WQ  #PORTS MEM   PURG  CMPRS PGRP PPID STATE    BOOSTS      %CPU_ME %CPU_OTHRS UID FAULTS  COW   MSGSENT  MSGRECV  SYSBSD    SYSMACH  CSW      PAGEINS IDLEW  POWER INSTRS CYCLES JETPRI USER                  #MREGS RPRVT VPRVT VSIZE KPRVT KSHRD
+6406  head             0.0  00:00.00 1     0    12     372K  0B    0B    6403 6404 sleeping *0[1]       0.00000 0.00000    501 477     105   30       15       130       105      12       2       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+6405  top              0.0  00:00.40 1/1   0    17     3092K 0B    0B    6403 6404 running  *0[1]       0.00000 0.00000    0   2016    165   366051   183025   3189      187018   198      4       0      0.0   0      0      180    root                  N/A    N/A   N/A   N/A   N/A   N/A  
+6404  bash             0.0  00:00.00 1     0    12     560K  0B    0B    6403 6403 sleeping *0[1]       0.00000 0.00000    501 798     155   44       22       292       176      4        7       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+6403  Window           0.0  00:00.00 1     0    22     980K  0B    0B    6403 591  sleeping *0[1]       0.00000 0.00000    501 999     213   52       19       220       158      16       0       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+6382  Google Chrome He 0.0  00:00.10 12    1    117    22M   24K   0B    5208 5208 sleeping *0[6]       0.00000 0.00000    501 17166   3174  397      270      2824      977      247      1       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+6381  Google Chrome He 0.0  00:00.12 12    1    116    22M   24K   0B    5208 5208 sleeping *0[7]       0.00000 0.00000    501 17305   3174  386      265      2923      1001     241      8       0      0.0   0      0      180    grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+6322  mdworker_shared  0.0  00:00.29 4     1    53     1664K 0B    0B    6322 1    sleeping *0[1]       0.00000 0.00000    501 16202   314   735      307      5651      2072     937      17      1      0.0   0      0      0      grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
+6321  mdworker_shared  0.0  00:00.55 4     1    53     1520K 0B    0B    6321 1    sleeping *0[1]       0.00000 0.00000    501 30227   314   901      365      11569     3972     1615     17      1      0.0   0      0      0      grantherman           N/A    N/A   N/A   N/A   N/A   N/A  
